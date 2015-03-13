@@ -1,0 +1,2 @@
+module SongRelationsHelper
+end
