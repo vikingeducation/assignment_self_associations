@@ -5,3 +5,25 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+# Clear all
+Movie.delete_all
+MovieRecommendation.delete_all
+
+
+
+# Make a bunch of movies
+50.times do |i|
+  Movie.create(:title => Faker::Lorem.words(rand(1..4)).join(" ").titleize)
+end
+
+
+
+
+# Tie a bunch of movies together with recommendations
+75.times do |i|
+  base, recommendation = Movie.all.sample, Movie.all.sample
+  base.recommended_movies << recommendation unless base.recommended_movies.include?(recommendation)
+end
+
