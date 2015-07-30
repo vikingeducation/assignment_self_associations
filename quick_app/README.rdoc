@@ -12,9 +12,8 @@ string       int
 
 Allies [country self join table]
 countryid         |  countryid
-inT               |    int
+int               |    int
                   |
-
 
 class Allies 
 
