@@ -8,4 +8,7 @@ class Tutoring < ActiveRecord::Base
              :foreign_key => :learner_id,
              :class_name => "Student"
 
+  validates :tutor_id,
+        :uniqueness => { :scope => :learner_id}
+
 end
