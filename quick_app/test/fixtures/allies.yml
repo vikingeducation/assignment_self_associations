@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ally_intiator_id: 1
+  ally_acceptor_id: 1
+
+two:
+  ally_intiator_id: 1
+  ally_acceptor_id: 1
