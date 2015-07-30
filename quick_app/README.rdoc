@@ -1,0 +1,27 @@
+Many to Many
+
+country1 allies with  country2
+country2 accepts alligence to another country1
+
+country1 is also allies with country3
+country 2 is not allied with country3
+
+Country
+Name      population      
+string       int
+
+Allies [country self join table]
+countryid         |  countryid
+inT               |    int
+                  |
+
+
+class Allies 
+
+  # The Initiator side
+  belongs_to :ally_initiator, :foreign_key => :ally_intiator_id,
+                                :class_name => "Country"
+
+  # The Recipient side
+  belongs_to :ally_acceptor, :foreign_key => :ally_acceptor_id,
+                                :class_name => "Country"
