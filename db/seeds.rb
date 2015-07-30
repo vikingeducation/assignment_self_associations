@@ -5,3 +5,17 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+user_count = 10
+
+user_count.times do
+  User.create(:name => Faker::Internet.user_name)
+end
+
+User.all.each do |user|
+
+  rand(1..2).times do
+
+    Subscribing.create(:initiator_id => user.id, :receiver_id => rand(1..user_count))  
+
+  end
+end
