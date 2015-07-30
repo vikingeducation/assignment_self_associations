@@ -3,11 +3,7 @@ assignment_self_associations
 
 This is the self-reflective association. This is the self-reflective association. This is the self-reflective association. This is the self-reflective association...
 
-
-table: employees
-fields: id, name, title
-
-join-table: employee_managers
-fields: employee_id, manager_id
+table: stockholders, fields: id, name
+join-table: seller_buyers, fields: buyer_id, seller_id
 
 -- Xin Liu
