@@ -3,7 +3,7 @@ assignment_self_associations
 
 This is the self-reflective association. This is the self-reflective association. This is the self-reflective association. This is the self-reflective association...
 
--Competitors in a single-elimination tournament have matches against other competitors
+-Competitors in a round robin tournament have matches against other competitors
 -They can face other competitors only once, but can face many other competitors
 -The winner defeats the loser, creating a victory
 -One competitor has many beaten competitors, and many who have been beaten by
