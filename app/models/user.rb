@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
 
+#describe Subscribers
 has_many  :subscription, :foreign_key => :Subscribe_initiator, #why :subscriber_id
                           :class_name => "Subscribing"
 has_many :subscriptions_subscribed_to, :through => :subscription,
