@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 20160209172619) do
     t.datetime "updated_at",   null: false
   end
 
+  add_index "enrollings", ["enroller_id", "professor_id"], name: "index_enrollings_on_enroller_id_and_professor_id", unique: true
+
   create_table "students", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
