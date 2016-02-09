@@ -16,19 +16,36 @@ Enrolling.delete_all
 
 
 # create professors
-5.times do
-  Student.create(name: Faker::Name.name)
-end
+# 5.times do
+#   Student.create(name: Faker::Name.name)
+# end
 
-professors = Student.all
+# professors = Student.all
 
-# create enrolled students
-professors.each do |prof|
-  10.times do
-    student = Student.create(name: Faker::Name.name)
-    Enrolling.create(enroller_id: student.id, professor_id: prof.id)
-  end
-end
+# # create enrolled students
+# professors.each do |prof|
+#   10.times do
+#     student = Student.create(name: Faker::Name.name)
+#     Enrolling.create(enroller_id: student.id, professor_id: prof.id)
+#   end
+# end
 
 
 # create professors enrolled in other professors' classes
+
+50.times do
+  Student.create(name: Faker::Name.name)
+end
+
+PROFESSORS = Student.all.sample(5)
+
+def generate_enrollings(student)
+  profs = PROFESSORS.sample(3)
+  profs.each do |prof|     
+    Enrolling.create(enroller_id: student.id, professor_id: prof.id) unless student.id == prof.id
+  end
+end
+
+Student.all.each do |student|
+  generate_enrollings(student)
+end

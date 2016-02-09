@@ -9,9 +9,7 @@ class Student < ActiveRecord::Base
   # receiver
   has_many :received_enrollings, foreign_key: :professor_id, class_name: "Enrolling"
 
-  has_many :enrolled_students, through: :received_enrollings, source: :enroller_initiator
-
-
+  has_many :enrolled_students, through: :received_enrollings, source: :enroller_initiator, dependent: :destroy
 
 
 end
