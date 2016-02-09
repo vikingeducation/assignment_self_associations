@@ -12,5 +12,5 @@ class Following < ActiveRecord::Base
   belongs_to :follow_recipient, foreign_key: :followed_id, class_name: "User"
 
   
-  validates :follower_id, :uniqueness => {:scope => :follower_id}
+  validates :follower_id, :uniqueness => {:scope => :followed_id}
 end

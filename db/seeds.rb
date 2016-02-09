@@ -37,5 +37,5 @@ end
 puts "generating User"
 MULTIPLIER.times { generate_user }
 puts "generating Followings"
-1000.times { generate_friending }
+MULTIPLIER.times { generate_friending }
 puts "DONE"

@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
     class_name: "Following"
   has_many :followed_users,
     through: :initiated_followings,
-    source: :follow_recipient
+    source: :follow_recipient, :dependent => :destroy
 
   # When acting as the recipient of the following (A User is followed by another)
   has_many :received_followings,
@@ -21,6 +21,6 @@ class User < ActiveRecord::Base
     class_name: "Following"
   has_many :users_followed_by,
     through: :received_followings,
-    source: :follow_initiator
+    source: :follow_initiator, :dependent => :destroy
 
 end
