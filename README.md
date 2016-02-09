@@ -19,6 +19,6 @@ Self-reflecting Student model, where a student can be a either be a professor or
   Student:    has_many :professors
 
   Receiver:
-  Enrollings: belongs_to :enrolled_recipient
+  Enrollings: belongs_to :enroller_recipient
   User:       has_many :received_enrollings
   User:       has_many :enrolled_students
