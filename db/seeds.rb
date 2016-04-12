@@ -33,5 +33,5 @@ def generate_matches
   match.save
 end
 
-MULTIPLIER.times generate_names
-MULTIPLIER.times generate_matches
+MULTIPLIER.times { generate_names }
+MULTIPLIER.times { generate_matches }
