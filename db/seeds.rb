@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-multiplier = 10
+multiplier = 20
 
 Color.destroy_all
 Mixing.destroy_all
