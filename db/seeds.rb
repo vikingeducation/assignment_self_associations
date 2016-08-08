@@ -5,14 +5,22 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+BusStop.destroy_all
+BusRoute.destroy_all
 
-
-10.times do
+50.times do
   BusStop.create(name: Faker::Address.street_name)
 end
 
-BusStop.all.each do |stop|
-  3.times do
-    BusStop.all.sample
 
+10.times do
+  random_origin = BusStop.all.sample
+
+  begin
+    random_destination = BusStop.all.sample
+  end until random_destination != random_origin
+
+  BusRoute.create(origin: random_origin, destination: random_destination)
 end
+
+

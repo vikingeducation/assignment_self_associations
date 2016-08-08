@@ -2,11 +2,19 @@ class BusStop < ActiveRecord::Base
 
 
   # acting as origin
-  has_many :bus_routes, foreign_key: :origin_id
-  has_many :destinations, through: :bus_routes, source: :destination
+  has_many :outbound_routes,
+           foreign_key: :origin_id,
+           class_name: "BusRoute",
+           dependent: :nullify
+
+  has_many :destinations, through: :outbound_routes, source: :destination
 
   # acting as destination
-  has_many :bus_routes, foreign_key: :destination_id
-  has_many :origins, through: :bus_routes, source: :origin
+  has_many :inbound_routes,
+            foreign_key: :destination_id,
+            class_name: "BusRoute",
+            dependent: :nullify
+
+  has_many :origins, through: :inbound_routes, source: :origin
 
 end
