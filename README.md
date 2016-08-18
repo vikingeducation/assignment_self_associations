@@ -7,4 +7,6 @@ David Watts
 
 Tiger model with tigers db table.
 
-The association will be maulings, where a has mauled or been mauleed by another tiger.
+The association will be maulings, with a maulee and a mauler id.
+
+Tiger associations will be maulees and maulers. 
