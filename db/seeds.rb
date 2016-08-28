@@ -22,7 +22,7 @@ puts "people created."
 
 puts "creating relationship..."
 100.times do
-  stack = Person.pluck(:id)
+  stack = Person.pluck(:id).shuffle
   r = Selling.new
   r[:buyer_id] = stack.pop
   r[:seller_id] = stack.pop
