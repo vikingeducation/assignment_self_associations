@@ -6,13 +6,25 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+puts "Destroying database."
+
 Team.destroy_all
 Game.destroy_all
 
 MULTIPLIER = 10
 
+puts "Creating Teams"
+
 MULTIPLIER.times do
-  Team.create(name: Faker::Team.name)
+  name = Faker::Team.name
+  Team.create(name: name) unless Team.pluck(:name).include? name
 end
 
-Team.visiting_opponents = Team.all.sample?
+puts "Adding visiting_opponents"
+
+Team.all.each do |team|
+  MULTIPLIER.times do
+    visitor = Team.all.sample
+    team.visiting_opponents << visitor unless visitor == team
+  end
+end
