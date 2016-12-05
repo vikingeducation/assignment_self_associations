@@ -6,7 +6,7 @@ class CreateInfatuations < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
-    add_index :infatuations, [:admirer_id, :crush_id], :unique => true
+    add_index :infatuations, [:admirer_id, :crush_id]
   end
 
 end

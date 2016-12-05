@@ -7,6 +7,6 @@ class Infatuation < ApplicationRecord
                     :foreign_key => :admirer_id,
                     :class_name => "Person"
 
-  validates :crush_id, :uniqueness => { :scope => :admirer_id }
+  # validates :crush_id, :uniqueness => { :scope => :admirer_id }
 
 end

@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20161205184121) do
     t.integer  "crush_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["admirer_id", "crush_id"], name: "index_infatuations_on_admirer_id_and_crush_id", unique: true
+    t.index ["admirer_id", "crush_id"], name: "index_infatuations_on_admirer_id_and_crush_id"
   end
 
   create_table "people", force: :cascade do |t|
