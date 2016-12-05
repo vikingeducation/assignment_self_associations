@@ -5,3 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Team.destroy_all
+Game.destroy_all
+
+MULTIPLIER = 10
+
+MULTIPLIER.times do
+  Team.create(name: Faker::Team.name)
+end
+
+Team.visiting_opponents = Team.all.sample?
