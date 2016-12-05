@@ -14,12 +14,18 @@ NUM.times do
                       email: Faker::Internet.email)
 end
 
-"Adding Connection"
+"Adding Connections"
 
-15.times do |i|
-  Professional.find(i+1).connected_colleagues << Professional.find(i+2)
-end
+# 15.times do |i|
+#   Professional.find(i+1).connected_colleagues << Professional.find(i+2)
+# end
+#
+# 15.times do |i|
+#   Professional.find(i+1).connections_received << Professional.find(i+2)
+# end
 
-15.times do |i|
-  Professional.find(i+1).connections_received << Professional.find(i+2)
+NUM.times do |n|
+  invitor = (Professional.first.id..Professional.last.id).sample
+  invitee = (Professional.first.id..Professional.last.id).sample
+  
 end

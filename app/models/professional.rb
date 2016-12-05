@@ -16,4 +16,6 @@ class Professional < ApplicationRecord
 
 
 
+
+
 end
