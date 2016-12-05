@@ -1,0 +1,2 @@
+class ColleagueConnection < ApplicationRecord
+end
