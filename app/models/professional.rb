@@ -1,9 +1,9 @@
 class Professional < ApplicationRecord
   has_many :initiated_colleagues, :foreign_key => :invitor_id,
-                                  :class_name => 'ColleagueConnection',
+                                  :class_name => 'ColleagueConnection'
 
   has_many :connected_colleagues, :through => :initiated_colleagues,
-                                  :source => :invitor_id
+                                  :source => :inviting_colleague
 
 
 
@@ -11,7 +11,7 @@ class Professional < ApplicationRecord
                                  :class_name => 'ColleagueConnection'
 
   has_many :connections_received, :through => :received_colleagues,
-                                  :source => :invitee_id
+                                  :source => :receiving_colleague
 
 
 

@@ -5,3 +5,21 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+NUM = 100
+
+"Adding Pro's"
+NUM.times do
+  Professional.create(name:  Faker::Name.name,
+                      email: Faker::Internet.email)
+end
+
+"Adding Connection"
+
+15.times do |i|
+  Professional.find(i+1).connected_colleagues << Professional.find(i+2)
+end
+
+15.times do |i|
+  Professional.find(i+1).connections_received << Professional.find(i+2)
+end
