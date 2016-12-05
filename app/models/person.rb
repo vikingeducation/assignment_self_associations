@@ -3,7 +3,8 @@ class Person < ApplicationRecord
   # admirer (initiator)
   has_many :feelings,
                     :foreign_key => :admirer_id,
-                    :class_name => "Infatuation"
+                    :class_name => "Infatuation",
+                    :dependent => :destroy
 
   has_many :crushes,
                     :through => :feelings,
@@ -13,7 +14,8 @@ class Person < ApplicationRecord
   # crush (recipient)
   has_many :feelings_stirred,
                     :foreign_key => :crush_id,
-                    :class_name => "Infatuation"
+                    :class_name => "Infatuation",
+                    :dependent => :destroy
 
   has_many :admirers,
                     :through => :feelings_stirred,
