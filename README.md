@@ -29,7 +29,7 @@ class Alliance
   belongs_to :initiator_ally, :foreign_key => :id_when_allier, :class_name => 'Country'
 
   #recipient side
-  #belongs_to :recipient_ally, :foreign_key => :id_when_allied, :class_name => 'Country'
+  belongs_to :recipient_ally, :foreign_key => :id_when_allied, :class_name => 'Country'
 
   validates :id_when_allied, :uniqueness => { :scope => :id_when_allier }
 end
