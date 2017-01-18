@@ -3,7 +3,7 @@ Country.destroy_all
 Alliance.destroy_all
 puts "DONE"
 
-MULTIPLIER = 20
+MULTIPLIER = 100
 
 def get_ids
   a = Country.pluck(:id).sample
