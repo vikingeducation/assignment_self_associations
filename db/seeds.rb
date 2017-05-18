@@ -5,3 +5,49 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+puts "Destroying old records"
+
+Person.destroy_all
+Following.destroy_all
+
+puts "Old records destroyed"
+
+
+MULTIPLIER = 10
+
+
+def generate_person
+  u = Person.new
+  u[:name]  = Faker::Name.first_name
+  u[:age]   = rand(18..60)
+  u[:occupation] = Faker::Job.title
+  u.save
+end
+
+
+(MULTIPLIER*50).times { generate_person }
+puts "Created persons"
+
+@test_persons = []
+Person.all.each {|u| @test_persons << u}
+@test_persons.shuffle!
+
+
+def generate_join_table
+  f = Following.new
+  person_idx = @test_persons.pop
+  f.acceptor_id = person_idx.id
+  person_idx = @test_persons.pop
+  f.sender_id = person_idx.id
+  f.save
+end
+
+
+# Create orders and add the credit card records.
+(MULTIPLIER*20).times { generate_join_table}
+puts "Created join table"
+
+
+puts "DONE!"
