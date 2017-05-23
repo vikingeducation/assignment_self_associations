@@ -17,8 +17,7 @@ ActiveRecord::Schema.define(version: 20170518150055) do
     t.integer  "sender_id",   null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.index ["acceptor_id"], name: "index_followings_on_acceptor_id", unique: true
-    t.index ["sender_id"], name: "index_followings_on_sender_id", unique: true
+    t.index ["acceptor_id", "sender_id"], name: "index_followings_on_acceptor_id_and_sender_id", unique: true
   end
 
   create_table "people", force: :cascade do |t|
