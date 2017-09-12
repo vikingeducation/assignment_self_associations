@@ -1,6 +1,6 @@
 class Dog < ApplicationRecord
   # when our Dog is a barker, i.e. he's barking at other Dogs (bad boy!)
-  has_many :barks_at, foreign_key :barker_id, class_name: "Barking"
+  has_many :barks_at, foreign_key: :barker_id, class_name: "Barking"
   has_many :barkees, through: :barks_at, source: :barkee
 
   # when our Dog is a barkee, i.e. he's being barked at by other Dogs (poor boy!)
