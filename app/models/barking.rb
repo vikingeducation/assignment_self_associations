@@ -1,0 +1,2 @@
+class Barking < ApplicationRecord
+end
