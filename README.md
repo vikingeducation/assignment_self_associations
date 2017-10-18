@@ -30,6 +30,7 @@ Tube Station - has many destinations and many origins
 `ts2 = TubeStation.create(:name => "North Greenwich", :accessibility => "Y", :no_of_exits => 3)`
 `ts3 = TubeStation.create(:name => "North Greenwich", :accessibility => "Y", :no_of_exits => 3)`
 
+j = Journey.create(:origin_id => 41, :destination_id => 60)
 
 `t.initiated_journeys`
 `t.journeys_started`
@@ -44,10 +45,13 @@ Tube Station - has many destinations and many origins
 `tl.journeys_started << t`
 
 
-When assigning attributes, you must pass a hash as an argument.
-`t.received_journeys.build(ts)`
+`t.received_journeys.build(:origin_id => 60)`
 
+t.initiated_journey_ids
 t.journeys_started_ids
+t.received_journey_ids
+t.journeys_ended_ids
+
 tl.journeys_started << ts3
 
 
