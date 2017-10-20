@@ -38,7 +38,6 @@ $ rails console
 etc.....
 ```
 
-the page will be available in the browser at localhost:3000
 
 ## Authors
 
