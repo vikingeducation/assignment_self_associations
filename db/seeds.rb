@@ -30,20 +30,15 @@ end
 (MULTIPLIER*50).times { generate_person }
 puts "Created persons"
 
-@test_persons = []
-Person.all.each {|u| @test_persons << u}
-@test_persons.shuffle!
 
+@test_persons = Person.limit(5).order("RANDOM()").pluck(:id)
 
 def generate_join_table
   f = Following.new
-  person_idx = @test_persons.pop
-  f.acceptor_id = person_idx.id
-  person_idx = @test_persons.pop
-  f.sender_id = person_idx.id
+  f.acceptor_id = @test_persons.pop
+  f.sender_id = @test_persons.pop
   f.save
 end
-
 
 # Create orders and add the credit card records.
 (MULTIPLIER*20).times { generate_join_table}
