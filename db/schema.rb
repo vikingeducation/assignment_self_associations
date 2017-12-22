@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171221213538) do
+ActiveRecord::Schema.define(version: 20171222145246) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,28 @@ ActiveRecord::Schema.define(version: 20171221213538) do
     t.string "name"
     t.string "role"
     t.integer "manager_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "followings", force: :cascade do |t|
+    t.integer "follower_id", null: false
+    t.integer "followee_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["follower_id", "followee_id"], name: "index_followings_on_follower_id_and_followee_id", unique: true
+  end
+
+  create_table "giftings", force: :cascade do |t|
+    t.integer "giver_id"
+    t.integer "recipient_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["giver_id", "recipient_id"], name: "index_giftings_on_giver_id_and_recipient_id", unique: true
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
