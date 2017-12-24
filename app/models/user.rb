@@ -24,8 +24,8 @@ class User < ApplicationRecord
   ###### Friends #######
   # When acting as the initiator of the friending
   has_many :initiated_friendings,
-           :foreign_key => :friender_id,
-           :class_name => "Friending"
+           :class_name => "Friending",
+           :foreign_key => :friender_id
 
   has_many :friended_users,
            :through => :initiated_friendings,
@@ -40,14 +40,27 @@ class User < ApplicationRecord
            :through => :received_friendings,
            :source => :friend_initiator
 
+  ###### Followings #######
 
-  # Associations for the follower
-  # has_many :followings, foreign_key: :follower_id
-  # has_many :followed_users, through: :followings, source: :followed_user, dependent: :destroy
+  # Define Follower
+  has_many :initiated_followings,
+           class_name: :Following,
+           foreign_key: :follower_id
+
+  has_many :followees,
+           through: :initiated_followings,
+           source: :followee
+
+  # Define Followee
+  has_many :recieved_followings,
+           class_name: :Following,
+           foreign_key: :followee_id
+
+  has_many :followers,
+           through: :recieved_followings,
+           source: :follower
 
 
 
-  # Associations for the followee
-  # has_many :followers, through: :followings
-  # has_many :followees, through: :followings, class_name: :User, source: :followee
+
 end

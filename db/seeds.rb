@@ -9,38 +9,44 @@ Employee.find_or_create_by!(name: 'Azrael', manager_id: gmel.id)
 
 
 # X:X users
-anne = User.find_or_create_by!(name: 'anne')
-mike = User.find_or_create_by!(name: 'mike')
-priscilla = User.find_or_create_by!(name: 'priscilla')
-customer = User.find_or_create_by!(name: 'customer')
-joanne = User.find_or_create_by!(name: 'joanne')
-andrew = User.find_or_create_by!(name: 'andrew')
+zorro = User.find_or_create_by!(name: 'zorro')
+noche = User.find_or_create_by!(name: 'noche')
+alex = User.find_or_create_by!(name: 'alex')
+violet = User.find_or_create_by!(name: 'violet')
+henrietta = User.find_or_create_by!(name: 'henrietta')
+manny = User.find_or_create_by!(name: 'manny')
 
 
 
-Gifting.find_or_create_by(giver_id: anne.id, recipient_id: mike.id)
-Gifting.find_or_create_by(giver_id: anne.id, recipient_id: andrew.id)
-Gifting.find_or_create_by(giver_id: anne.id, recipient_id: customer.id)
-Gifting.find_or_create_by(giver_id: anne.id, recipient_id: priscilla.id)
+Gifting.find_or_create_by(giver_id: zorro.id, recipient_id: noche.id)
+Gifting.find_or_create_by(giver_id: zorro.id, recipient_id: manny.id)
+Gifting.find_or_create_by(giver_id: zorro.id, recipient_id: violet.id)
+Gifting.find_or_create_by(giver_id: zorro.id, recipient_id: alex.id)
 
-Gifting.find_or_create_by(giver_id: mike.id, recipient_id: anne.id)
-Gifting.find_or_create_by(giver_id: priscilla.id, recipient_id: anne.id)
+Gifting.find_or_create_by(giver_id: noche.id, recipient_id: zorro.id)
+Gifting.find_or_create_by(giver_id: alex.id, recipient_id: zorro.id)
 
-Gifting.find_or_create_by(giver_id: priscilla.id, recipient_id: mike.id)
-Gifting.find_or_create_by(giver_id: mike.id, recipient_id: joanne.id)
-
-
+Gifting.find_or_create_by(giver_id: alex.id, recipient_id: noche.id)
+Gifting.find_or_create_by(giver_id: noche.id, recipient_id: henrietta.id)
 
 
-Friending.find_or_create_by(friender_id: anne.id, friend_id: mike.id)
-Friending.find_or_create_by(friender_id: anne.id, friend_id: andrew.id)
-Friending.find_or_create_by(friender_id: anne.id, friend_id: customer.id)
-
-Friending.find_or_create_by(friender_id: mike.id, friend_id: anne.id)
-Friending.find_or_create_by(friender_id: priscilla.id, friend_id: anne.id)
 
 
-# Following.find_or_create_by(follower_id: v.id, followee_id: h.id)
-# Following.find_or_create_by(follower_id: v.id, followee_id: t.id)
-# Following.find_or_create_by(follower_id: v.id, followee_id: r.id)
-# Following.find_or_create_by(follower_id: v.id, followee_id: l.id)
+Friending.find_or_create_by(friender_id: zorro.id, friend_id: noche.id)
+Friending.find_or_create_by(friender_id: zorro.id, friend_id: manny.id)
+Friending.find_or_create_by(friender_id: zorro.id, friend_id: violet.id)
+
+Friending.find_or_create_by(friender_id: noche.id, friend_id: zorro.id)
+Friending.find_or_create_by(friender_id: alex.id, friend_id: zorro.id)
+
+
+Following.find_or_create_by(follower_id: zorro.id, followee_id: noche.id)
+Following.find_or_create_by(follower_id: zorro.id, followee_id: manny.id)
+Following.find_or_create_by(follower_id: zorro.id, followee_id: violet.id)
+Following.find_or_create_by(follower_id: zorro.id, followee_id: alex.id)
+
+Following.find_or_create_by(follower_id: noche.id, followee_id: zorro.id)
+Following.find_or_create_by(follower_id: alex.id, followee_id: zorro.id)
+
+Following.find_or_create_by(follower_id: alex.id, followee_id: noche.id)
+Following.find_or_create_by(follower_id: noche.id, followee_id: henrietta.id)
