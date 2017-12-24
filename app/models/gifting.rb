@@ -1,9 +1,17 @@
 class Gifting < ApplicationRecord
 
-  # Associations for the gift_giver
-  belongs_to :gift_recipient, class_name: :User, foreign_key: :recipient_id
+  # Required for the Initiator side: a giver
+  belongs_to :gift_recipient, # matches the source alias in the user model
+             :foreign_key => :recipient_id, # identifies the column name in this table
+             :class_name => "User" # identifies the class it points to
 
-  # Associations for the gift_recipient
-  belongs_to :gift_giver, class_name: :User, foreign_key: :giver_id
+  # Required for the Recipient side: a recipient
+  belongs_to :gift_initiator, # matches the source alias in the user model
+             :foreign_key => :giver_id, # identifies the column name in this table
+             :class_name => "User" # identifies the class it points to
+
+  validates :recipient_id,
+            :uniqueness => { :scope => :giver_id }
+
 
 end

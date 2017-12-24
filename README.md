@@ -16,6 +16,12 @@ I set up an employees table that has a `manager_id` option.
 This is a model to express users giving gifts to each other. A gift_giver can give gifts to multiple gift_recipients and a gift_recipient can receive gifts from multiple gift_givers.
 
 
+### Users & Followers
 
-Users & Followers
+This is a model to express users following each other. A follower can follow multiple followees and a followee can be followed by multiple followers.
+
+
+### Users & Friendships
+
+This is a model to express users friending each other. A friender can request multiple friends and a friend can be followed by multiple followers.
 
