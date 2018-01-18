@@ -1,0 +1,28 @@
+# Postgresql
+#   gem install 'pg'
+#
+#
+#
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *default
+  database: assignment_self_associations_development
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
+  <<: *default
+  database: assignment_self_associations_test
+
+production:
+  <<: *default
+  database: assignment_self_associations_production
+  username: assignment_self_associations
+  password: <%= ENV['ASSIGNMENT_SELF_ASSOCIATIONS_DATABASE_PASSWORD'] %>
